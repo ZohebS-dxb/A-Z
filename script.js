@@ -28,10 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
-            if (!button.classList.contains('green')) {
-                button.classList.add('green');
-                resetTimer();
+            if (!button.classList.contains('red')) {
+                button.classList.add('red');
+            } else {
+                button.classList.remove('red');
             }
+            resetTimer(); // Reset the timer on button click
+            messageElement.style.display = 'none'; // Hide the message on button click
         });
     });
 
