@@ -1,81 +1,69 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const countdownElement1 = document.getElementById('countdown1');
-    const countdownElement2 = document.getElementById('countdown2');
-    const gameOverMessage = document.getElementById('game-over-message');
-    const letterButtons = document.querySelectorAll('.letter-button');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
 
-    let countdown1 = 20;
-    let countdown2 = 20;
-    let countdownTimer1;
-    let countdownTimer2;
-    let activePlayer = 1; // Track which player's turn it is (1 for Player 1, 2 for Player 2)
+.container {
+    width: 100%;
+    padding: 10px;
+    text-align: center; /* Center align content within container */
+}
 
-    // Function to start Player 1's timer
-    function startTimer1() {
-        countdown1 = 20;
-        countdownElement1.textContent = countdown1;
-        countdownTimer1 = setInterval(() => {
-            countdown1--;
-            countdownElement1.textContent = countdown1;
-            if (countdown1 === 0) {
-                clearInterval(countdownTimer1);
-                gameOver();
-            }
-        }, 1000);
-    }
+.timer-container {
+    display: flex;
+    justify-content: space-between; /* Space out the two timers */
+    margin-bottom: 20px; /* Space below timers */
+}
 
-    // Function to start Player 2's timer
-    function startTimer2() {
-        countdown2 = 20;
-        countdownElement2.textContent = countdown2;
-        countdownTimer2 = setInterval(() => {
-            countdown2--;
-            countdownElement2.textContent = countdown2;
-            if (countdown2 === 0) {
-                clearInterval(countdownTimer2);
-                gameOver();
-            }
-        }, 1000);
-    }
+.timer {
+    font-size: 2rem; /* Font size for timers */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 10px; /* Space below timers */
+    text-align: center; /* Center align timer text */
+}
 
-    // Function to reset and switch timers between players
-    function switchPlayer() {
-        if (activePlayer === 1) {
-            clearInterval(countdownTimer1);
-            startTimer2();
-            activePlayer = 2;
-        } else {
-            clearInterval(countdownTimer2);
-            startTimer1();
-            activePlayer = 1;
-        }
-    }
+.player1-timer {
+    color: cyan; /* Cyan color for Player 1's timer */
+}
 
-    // Function to handle game over condition
-    function gameOver() {
-        gameOverMessage.style.display = 'block'; // Display game over message
-        letterButtons.forEach(button => {
-            button.removeEventListener('click', handleLetterClick); // Disable letter button clicks
-        });
-    }
+.player2-timer {
+    color: yellow; /* Yellow color for Player 2's timer */
+}
 
-    // Event listener for letter buttons
-    function handleLetterClick() {
-        const button = this;
-        if (!button.classList.contains('red')) {
-            button.classList.add('red');
-            if (activePlayer === 1) {
-                startTimer1();
-            } else {
-                startTimer2();
-            }
-        } else {
-            button.classList.remove('red');
-        }
-        switchPlayer(); // Switch to the other player's turn
-    }
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+}
 
-    letterButtons.forEach(button => {
-        button.addEventListener('click', handleLetterClick);
-    });
-});
+.letter-button {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.letter-button.red {
+    background-color: red !important; /* Ensure red color is applied */
+    color: black !important; /* Change text color for visibility */
+}
+
+.message {
+    font-size: 3rem; /* Larger font size for message */
+    font-weight: bold; /* Bold text */
+    color: red; /* Red color */
+    margin-top: 20px; /* Space above message */
+    display: none; /* Initially hidden */
+}
