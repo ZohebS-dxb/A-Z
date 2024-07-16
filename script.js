@@ -9,19 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let timer2 = 10;
     let timer1Interval;
     let timer2Interval;
-    let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
+    let gameInProgress = true;
 
     // Function to start Timer 1
     function startTimer1() {
-        clearInterval(timer2Interval); // Pause Timer 2
-        timer2Element.style.display = 'none'; // Hide Timer 2
         timer1Element.style.display = 'block'; // Show Timer 1
-        timer1 = 10;
         timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
             timer1--;
             timer1CountdownElement.textContent = timer1;
-            if (timer1 === 0) {
+            if (timer1 === 0 && gameInProgress) {
                 clearInterval(timer1Interval);
                 displayGameOver();
             }
@@ -30,15 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to start Timer 2
     function startTimer2() {
-        clearInterval(timer1Interval); // Pause Timer 1
-        timer1Element.style.display = 'none'; // Hide Timer 1
         timer2Element.style.display = 'block'; // Show Timer 2
-        timer2 = 10;
         timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
             timer2--;
             timer2CountdownElement.textContent = timer2;
-            if (timer2 === 0) {
+            if (timer2 === 0 && gameInProgress) {
                 clearInterval(timer2Interval);
                 displayGameOver();
             }
@@ -47,22 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to display "Game Over" message
     function displayGameOver() {
+        gameInProgress = false;
         gameOverElement.style.display = 'block';
     }
 
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
-            if (activeTimer === 1) {
-                startTimer1();
-                activeTimer = 2;
-            } else if (activeTimer === 2) {
-                startTimer2();
-                activeTimer = 1;
+            if (gameInProgress) {
+                if (timer1Element.style.display === 'none') {
+                    startTimer1();
+                } else {
+                    startTimer2();
+                }
             }
         });
     });
-
-    // Start initial timer
-    startTimer1(); // Start with Timer 1
 });
