@@ -16,25 +16,11 @@ body {
     text-align: center; /* Center align content within container */
 }
 
-.timer-container {
-    display: flex;
-    justify-content: space-between; /* Space out the two timers */
-    margin-bottom: 20px; /* Space below timers */
-}
-
 .timer {
-    font-size: 2rem; /* Font size for timers */
+    font-size: 6rem; /* Larger font size for timer */
     font-weight: bold; /* Bold text */
-    margin-bottom: 10px; /* Space below timers */
-    text-align: center; /* Center align timer text */
-}
-
-.player1-timer {
-    color: cyan; /* Cyan color for Player 1's timer */
-}
-
-.player2-timer {
-    color: yellow; /* Yellow color for Player 2's timer */
+    color: red; /* Red color */
+    margin-bottom: 20px; /* Space below timer */
 }
 
 .letter-grid {
@@ -67,4 +53,3 @@ body {
     margin-top: 20px; /* Space above message */
     display: none; /* Initially hidden */
 }
-
