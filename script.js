@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameOverMessage = document.getElementById('game-over-message');
     const letterButtons = document.querySelectorAll('.letter-button');
 
-    let countdown1 = 30;
+    let countdown1 = 20;
     let countdown2 = 20;
     let countdownTimer1;
     let countdownTimer2;
