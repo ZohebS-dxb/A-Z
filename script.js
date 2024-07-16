@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const countdownElement = document.getElementById('countdown');
     const messageElement = document.getElementById('message');
-    let countdown = 7;
+    let countdown = 5;
     let countdownTimer;
 
     // Function to start the countdown timer
     function startTimer() {
-        countdown = 7;
+        countdown = 5;
         countdownElement.textContent = countdown;
         countdownTimer = setInterval(() => {
             countdown--;
