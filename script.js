@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to start Timer 1
     function startTimer1() {
+        clearInterval(timer2Interval); // Pause Timer 2
+        timer2Element.style.display = 'none'; // Hide Timer 2
+        timer1Element.style.display = 'block'; // Show Timer 1
         timer1 = 10;
-        timer1Element.style.display = 'block'; // Ensure timer is visible
         timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
             timer1--;
@@ -28,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to start Timer 2
     function startTimer2() {
+        clearInterval(timer1Interval); // Pause Timer 1
+        timer1Element.style.display = 'none'; // Hide Timer 1
+        timer2Element.style.display = 'block'; // Show Timer 2
         timer2 = 10;
-        timer2Element.style.display = 'block'; // Ensure timer is visible
         timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
             timer2--;
@@ -46,28 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
         gameOverElement.style.display = 'block';
     }
 
-    // Function to reset timers
-    function resetTimers() {
-        clearInterval(timer1Interval);
-        clearInterval(timer2Interval);
-        timer1Element.style.display = 'none';
-        timer2Element.style.display = 'none';
-        gameOverElement.style.display = 'none';
-        activeTimer = 1;
-    }
-
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
             if (activeTimer === 1) {
                 startTimer1();
-                clearInterval(timer2Interval);
-                timer2Element.style.display = 'none';
                 activeTimer = 2;
             } else if (activeTimer === 2) {
                 startTimer2();
-                clearInterval(timer1Interval);
-                timer1Element.style.display = 'none';
                 activeTimer = 1;
             }
         });
