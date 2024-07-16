@@ -14,7 +14,7 @@ body {
 
 .letter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 10px;
 }
 
@@ -27,6 +27,7 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    text-align: center; /* Ensure text is centered within the button */
 }
 
 .letter-button.red {
