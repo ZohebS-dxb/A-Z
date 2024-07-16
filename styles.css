@@ -17,7 +17,9 @@ body {
 }
 
 .timer {
-    font-size: 4rem; /* Larger font size for timer */
+    font-size: 6rem; /* Larger font size for timer */
+    font-weight: bold; /* Bold text */
+    color: red; /* Red color */
     margin-bottom: 20px; /* Space below timer */
 }
 
@@ -39,12 +41,14 @@ body {
     text-align: center;
 }
 
-.letter-button.green {
-    background-color: green;
+.letter-button.red {
+    background-color: red;
 }
 
 .message {
-    font-size: 2rem; /* Larger font size for message */
+    font-size: 3rem; /* Larger font size for message */
+    font-weight: bold; /* Bold text */
+    color: red; /* Red color */
     margin-top: 20px; /* Space above message */
     display: none; /* Initially hidden */
 }
