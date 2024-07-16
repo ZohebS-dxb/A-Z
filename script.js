@@ -13,22 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
             countdownElement.textContent = countdown;
             if (countdown === 0) {
                 clearInterval(countdownTimer);
-                messageElement.textContent = "Player Out";
+                messageElement.style.display = 'block'; // Show the message
             }
         }, 1000);
     }
 
-    // Function to reset the timer
+    // Function to reset the timer and hide the message
     function resetTimer() {
         clearInterval(countdownTimer);
         startTimer();
+        messageElement.style.display = 'none'; // Hide the message
     }
 
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
-            button.classList.add('green');
-            resetTimer();
+            if (!button.classList.contains('green')) {
+                button.classList.add('green');
+                resetTimer();
+            }
         });
     });
 
