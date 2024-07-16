@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('background.jpg'); /* Replace with your image path */
+    background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
 }
@@ -13,6 +13,12 @@ body {
 .container {
     width: 100%;
     padding: 10px;
+    text-align: center; /* Center align content within container */
+}
+
+.timer {
+    font-size: 4rem; /* Larger font size for timer */
+    margin-bottom: 20px; /* Space below timer */
 }
 
 .letter-grid {
@@ -30,9 +36,15 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    text-align: center; /* Ensure text is centered within the button */
+    text-align: center;
 }
 
-.letter-button.red {
-    background-color: red;
+.letter-button.green {
+    background-color: green;
+}
+
+.message {
+    font-size: 2rem; /* Larger font size for message */
+    margin-top: 20px; /* Space above message */
+    display: none; /* Initially hidden */
 }
