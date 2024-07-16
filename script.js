@@ -1,28 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const countdownElement = document.getElementById('countdown');
+    const preCountdownElement = document.getElementById('pre-countdown');
+    const postCountdownElement = document.getElementById('post-countdown');
+    const preTimerElement = document.getElementById('pre-timer');
+    const postTimerElement = document.getElementById('post-timer');
     const messageElement = document.getElementById('message');
-    let countdown = 5;
-    let countdownTimer;
 
-    // Function to start the countdown timer
-    function startTimer() {
-        countdown = 5;
-        countdownElement.textContent = countdown;
-        countdownTimer = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            if (countdown === 0) {
-                clearInterval(countdownTimer);
-                messageElement.style.display = 'block'; // Show the message
+    let preCountdown = 10;
+    let postCountdown = 10;
+    let preCountdownTimer;
+    let postCountdownTimer;
+
+    // Function to start the pre-game countdown timer
+    function startPreTimer() {
+        preCountdown = 10;
+        preCountdownElement.textContent = preCountdown;
+        preCountdownTimer = setInterval(() => {
+            preCountdown--;
+            preCountdownElement.textContent = preCountdown;
+            if (preCountdown === 0) {
+                clearInterval(preCountdownTimer);
+                preTimerElement.style.display = 'none';
+                startPostTimer();
             }
         }, 1000);
     }
 
-    // Function to reset the timer and hide the message
-    function resetTimer() {
-        clearInterval(countdownTimer);
-        startTimer();
-        messageElement.style.display = 'none'; // Hide the message
+    // Function to start the post-game countdown timer
+    function startPostTimer() {
+        postCountdown = 10;
+        postCountdownElement.textContent = postCountdown;
+        postCountdownTimer = setInterval(() => {
+            postCountdown--;
+            postCountdownElement.textContent = postCountdown;
+            if (postCountdown === 0) {
+                clearInterval(postCountdownTimer);
+                postTimerElement.style.display = 'none';
+                messageElement.style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    // Function to reset timers
+    function resetTimers() {
+        clearInterval(preCountdownTimer);
+        clearInterval(postCountdownTimer);
+        startPreTimer();
+        startPostTimer();
+        messageElement.style.display = 'none';
     }
 
     // Event listener for letter buttons
@@ -33,11 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 button.classList.remove('red');
             }
-            resetTimer(); // Reset the timer on button click
-            messageElement.style.display = 'none'; // Hide the message on button click
+            resetTimers(); // Reset timers on button click
         });
     });
 
-    // Start the initial timer
-    startTimer();
+    // Start the initial timers
+    startPreTimer();
 });
