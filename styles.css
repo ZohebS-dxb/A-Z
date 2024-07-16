@@ -42,7 +42,8 @@ body {
 }
 
 .letter-button.red {
-    background-color: red;
+    background-color: red !important; /* Ensure red color is applied */
+    color: black !important; /* Change text color for visibility */
 }
 
 .message {
