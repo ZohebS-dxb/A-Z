@@ -8,9 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="timer" class="timer"> <!-- Added 'timer' class for styling -->
-            <span id="countdown">7</span> <!-- Timer number only -->
-        </div>
+        <div id="pre-timer" class="timer">Time Left: <span id="pre-countdown">10</span> seconds</div>
         <div class="letter-grid">
             <button class="letter-button" id="A">A</button>
             <button class="letter-button" id="B">B</button>
@@ -39,7 +37,8 @@
             <button class="letter-button" id="Y">Y</button>
             <button class="letter-button" id="Z">Z</button>
         </div>
-        <div id="message" class="message">Player Out</div> <!-- Added 'message' class -->
+        <div id="post-timer" class="timer">Time Left: <span id="post-countdown">10</span> seconds</div>
+        <div id="message" class="message">You have lost</div>
     </div>
     <script src="script.js"></script>
 </body>
