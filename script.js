@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timer2 = 10;
     let timer1Interval;
     let timer2Interval;
+    let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
     let gameInProgress = true;
 
     // Function to start Timer 1
@@ -16,9 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         timer1Element.style.display = 'block'; // Show Timer 1
         timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
-            timer1--;
-            timer1CountdownElement.textContent = timer1;
-            if (timer1 === 0 && gameInProgress) {
+            if (timer1 > 0) {
+                timer1--;
+                timer1CountdownElement.textContent = timer1;
+            } else {
                 clearInterval(timer1Interval);
                 displayGameOver();
             }
@@ -30,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
         timer2Element.style.display = 'block'; // Show Timer 2
         timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
-            timer2--;
-            timer2CountdownElement.textContent = timer2;
-            if (timer2 === 0 && gameInProgress) {
+            if (timer2 > 0) {
+                timer2--;
+                timer2CountdownElement.textContent = timer2;
+            } else {
                 clearInterval(timer2Interval);
                 displayGameOver();
             }
@@ -49,10 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
             if (gameInProgress) {
-                if (timer1Element.style.display === 'none') {
+                if (activeTimer === 1) {
                     startTimer1();
-                } else {
+                    activeTimer = 2;
+                } else if (activeTimer === 2) {
                     startTimer2();
+                    activeTimer = 1;
                 }
             }
         });
