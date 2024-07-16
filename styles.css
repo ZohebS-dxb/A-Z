@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('background.jpg'); /* Replace with your image path */
+    background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
 }
@@ -16,11 +16,16 @@ body {
     text-align: center; /* Center align content within container */
 }
 
+.timer-container {
+    display: flex;
+    justify-content: space-between; /* Space out the two timers */
+    margin-bottom: 20px; /* Space below timers */
+}
+
 .timer {
-    font-size: 6rem; /* Larger font size for timer */
+    font-size: 2rem; /* Font size for timers */
     font-weight: bold; /* Bold text */
-    color: red; /* Red color */
-    margin-bottom: 20px; /* Space below timer */
+    color: black; /* Black color */
 }
 
 .letter-grid {
