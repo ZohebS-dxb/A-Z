@@ -8,14 +8,14 @@ body {
 }
 
 .container {
-    text-align: center;
+    width: 100%;
+    padding: 10px;
 }
 
 .letter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: 10px;
-    padding: 10px;
 }
 
 .letter-button {
@@ -27,7 +27,6 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    min-width: 60px;
 }
 
 .letter-button.red {
