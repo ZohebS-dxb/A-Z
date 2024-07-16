@@ -1,67 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const preCountdownElement = document.getElementById('pre-countdown');
-    const postCountdownElement = document.getElementById('post-countdown');
-    const preTimerElement = document.getElementById('pre-timer');
-    const postTimerElement = document.getElementById('post-timer');
-    const messageElement = document.getElementById('message');
+    const timer1Element = document.getElementById('timer1');
+    const timer1CountdownElement = document.getElementById('timer1-countdown');
+    const timer2Element = document.getElementById('timer2');
+    const timer2CountdownElement = document.getElementById('timer2-countdown');
+    const gameOverElement = document.getElementById('game-over');
 
-    let preCountdown = 10;
-    let postCountdown = 10;
-    let preCountdownTimer;
-    let postCountdownTimer;
+    let timer1 = 10;
+    let timer2 = 10;
+    let timer1Interval;
+    let timer2Interval;
+    let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
 
-    // Function to start the pre-game countdown timer
-    function startPreTimer() {
-        preCountdown = 10;
-        preCountdownElement.textContent = preCountdown;
-        preTimerElement.style.display = 'block'; // Ensure timer is visible
-        preCountdownTimer = setInterval(() => {
-            preCountdown--;
-            preCountdownElement.textContent = preCountdown;
-            if (preCountdown === 0) {
-                clearInterval(preCountdownTimer);
-                preTimerElement.style.display = 'none'; // Hide timer when done
-                startPostTimer(); // Start post-game timer
+    // Function to start Timer 1
+    function startTimer1() {
+        timer1 = 10;
+        timer1Element.style.display = 'block'; // Ensure timer is visible
+        timer1CountdownElement.textContent = timer1;
+        timer1Interval = setInterval(() => {
+            timer1--;
+            timer1CountdownElement.textContent = timer1;
+            if (timer1 === 0) {
+                clearInterval(timer1Interval);
+                displayGameOver();
             }
         }, 1000);
     }
 
-    // Function to start the post-game countdown timer
-    function startPostTimer() {
-        postCountdown = 10;
-        postCountdownElement.textContent = postCountdown;
-        postTimerElement.style.display = 'block'; // Ensure timer is visible
-        postCountdownTimer = setInterval(() => {
-            postCountdown--;
-            postCountdownElement.textContent = postCountdown;
-            if (postCountdown === 0) {
-                clearInterval(postCountdownTimer);
-                postTimerElement.style.display = 'none'; // Hide timer when done
-                messageElement.style.display = 'block'; // Show "You have lost" message
+    // Function to start Timer 2
+    function startTimer2() {
+        timer2 = 10;
+        timer2Element.style.display = 'block'; // Ensure timer is visible
+        timer2CountdownElement.textContent = timer2;
+        timer2Interval = setInterval(() => {
+            timer2--;
+            timer2CountdownElement.textContent = timer2;
+            if (timer2 === 0) {
+                clearInterval(timer2Interval);
+                displayGameOver();
             }
         }, 1000);
+    }
+
+    // Function to display "Game Over" message
+    function displayGameOver() {
+        gameOverElement.style.display = 'block';
     }
 
     // Function to reset timers
     function resetTimers() {
-        clearInterval(preCountdownTimer);
-        clearInterval(postCountdownTimer);
-        startPreTimer(); // Restart both timers
+        clearInterval(timer1Interval);
+        clearInterval(timer2Interval);
+        timer1Element.style.display = 'none';
+        timer2Element.style.display = 'none';
+        gameOverElement.style.display = 'none';
+        activeTimer = 1;
     }
 
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
         button.addEventListener('click', () => {
-            if (!button.classList.contains('red')) {
-                button.classList.add('red');
-            } else {
-                button.classList.remove('red');
+            if (activeTimer === 1) {
+                startTimer1();
+                clearInterval(timer2Interval);
+                timer2Element.style.display = 'none';
+                activeTimer = 2;
+            } else if (activeTimer === 2) {
+                startTimer2();
+                clearInterval(timer1Interval);
+                timer1Element.style.display = 'none';
+                activeTimer = 1;
             }
-            resetTimers(); // Reset timers on button click
-            messageElement.style.display = 'none'; // Hide "You have lost" message on button click
         });
     });
 
-    // Start the initial timers
-    startPreTimer();
+    // Start initial timer
+    startTimer1(); // Start with Timer 1
 });
