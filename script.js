@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameOverElement = document.getElementById('game-over');
     let gameOverMessage = '';
 
-    let timer1 = 10;
+    let timer1 = 8;
     let timer2 = 90;
     let timer1Interval;
     let timer2Interval;
@@ -53,8 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
         gameOverElement.style.display = 'block';
         gameOverElement.textContent = gameOverMessage;
         //gameOverSound.play();
-         gameOverSound.play().catch(error => {
+       // gameOverSound.play().catch(error => {
+//console.log('Failed to play the sound:', error);
+         console.log('Game over:', gameOverMessage); // Debugging message
+        gameOverSound.play().then(() => {
+            console.log('Sound played successfully'); // Debugging message
+        }).catch(error => {
             console.log('Failed to play the sound:', error);
+        });
         });
 
     }
