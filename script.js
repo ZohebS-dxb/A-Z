@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
     let gameInProgress = true;
 
+    const gameOverSound = document.getElementById('gamesound');
+
     // Function to start Timer 1
     function startTimer1() {
         clearInterval(timer2Interval); // Pause Timer 2
