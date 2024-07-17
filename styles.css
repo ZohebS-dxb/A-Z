@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     background-image: url('background.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
@@ -17,7 +17,7 @@ body {
 }
 
 .timer {
-    font-size: 6rem; /* Larger font size for timer */
+    font-size: 7rem; /* Larger font size for timer */
     font-weight: bold; /* Bold text */
     color: red; /* Red color */
     margin-bottom: 20px; /* Space below timer */
