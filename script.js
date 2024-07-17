@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         gameInProgress = false;
         gameOverElement.style.display = 'block';
         gameOverElement.textContent = gameOverMessage;
+        gameOverSound.play();
+
     }
 
     // Function to toggle letter color
