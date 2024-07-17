@@ -19,7 +19,7 @@ body {
 .timer {
     font-size: 7rem; /* Larger font size for timer */
     font-weight: bold; /* Bold text */
-    color: red; /* Red color */
+    color: yellow; /* Yellow color */
     margin-bottom: 20px; /* Space below timer */
 }
 
@@ -49,7 +49,7 @@ body {
 .message {
     font-size: 3rem; /* Larger font size for message */
     font-weight: bold; /* Bold text */
-    color: red; /* Red color */
+    color: green; /* Green color */
     margin-top: 20px; /* Space above message */
     display: none; /* Initially hidden */
 }
