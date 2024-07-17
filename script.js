@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameOverElement = document.getElementById('game-over');
     let gameOverMessage = '';
 
-    let timer1 = 7;
+    let timer1 = 90;
     let timer2 = 90;
     let timer1Interval;
     let timer2Interval;
