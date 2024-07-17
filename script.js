@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to display "Game Over" message
-    function displayGameOver() {
+   /* function displayGameOver() {
         gameInProgress = false;
         gameOverElement.style.display = 'block';
         gameOverElement.textContent = gameOverMessage;
@@ -62,7 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Failed to play the sound:', error);
         });
         });
+        }*/
 
+     function displayGameOver() {
+        gameInProgress = false;
+        gameOverElement.style.display = 'block';
+        gameOverElement.textContent = gameOverMessage;
+        console.log('Game over:', gameOverMessage); // Debugging message
+        gameOverSound.play().then(() => {
+            console.log('Sound played successfully'); // Debugging message
+        }).catch(error => {
+            console.log('Failed to play the sound:', error);
+        });
     }
 
     // Function to toggle letter color
