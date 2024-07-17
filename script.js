@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timer2Element = document.getElementById('timer2');
     const timer2CountdownElement = document.getElementById('timer2-countdown');
     const gameOverElement = document.getElementById('game-over');
+    let gameOverMessage = '';
 
     let timer1 = 10;
     let timer2 = 10;
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timer1CountdownElement.textContent = timer1;
             if (timer1 === 0) {
                 clearInterval(timer1Interval);
+                gameOverMessage = 'Player 2 wins';
                 displayGameOver();
             }
         }, 1000);
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timer2CountdownElement.textContent = timer2;
             if (timer2 === 0) {
                 clearInterval(timer2Interval);
+                gameOverMessage = 'Player 1 wins';
                 displayGameOver();
             }
         }, 1000);
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayGameOver() {
         gameInProgress = false;
         gameOverElement.style.display = 'block';
+        gameOverElement.textContent = gameOverMessage;
     }
 
     // Function to toggle letter color
@@ -66,18 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameInProgress) {
                 toggleLetterColor(button);
                 if (activeTimer === 1) {
-                    clearInterval(timer1Interval);
-                    startTimer2();
+                    startTimer1();
                     activeTimer = 2;
                 } else if (activeTimer === 2) {
-                    clearInterval(timer2Interval);
-                    startTimer1();
+                    startTimer2();
                     activeTimer = 1;
                 }
             }
-        });
+        }, { once: true });
     });
-
-    // Start initial timer
-    startTimer1(); // Start with Timer 1
 });
