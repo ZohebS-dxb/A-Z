@@ -12,33 +12,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
     let gameInProgress = true;
 
+    // Function to update Timer 1
+    function updateTimer1() {
+        timer1CountdownElement.textContent = timer1;
+        if (timer1 === 0) {
+            clearInterval(timer1Interval);
+            displayGameOver();
+        }
+    }
+
+    // Function to update Timer 2
+    function updateTimer2() {
+        timer2CountdownElement.textContent = timer2;
+        if (timer2 === 0) {
+            clearInterval(timer2Interval);
+            displayGameOver();
+        }
+    }
+
     // Function to start Timer 1
     function startTimer1() {
+        clearInterval(timer2Interval); // Pause Timer 2
         timer1Element.style.display = 'block'; // Show Timer 1
-        timer1CountdownElement.textContent = timer1;
+        timer2Element.style.display = 'none'; // Hide Timer 2
         timer1Interval = setInterval(() => {
-            if (timer1 > 0) {
-                timer1--;
-                timer1CountdownElement.textContent = timer1;
-            } else {
-                clearInterval(timer1Interval);
-                displayGameOver();
-            }
+            timer1--;
+            updateTimer1();
         }, 1000);
     }
 
     // Function to start Timer 2
     function startTimer2() {
+        clearInterval(timer1Interval); // Pause Timer 1
         timer2Element.style.display = 'block'; // Show Timer 2
-        timer2CountdownElement.textContent = timer2;
+        timer1Element.style.display = 'none'; // Hide Timer 1
         timer2Interval = setInterval(() => {
-            if (timer2 > 0) {
-                timer2--;
-                timer2CountdownElement.textContent = timer2;
-            } else {
-                clearInterval(timer2Interval);
-                displayGameOver();
-            }
+            timer2--;
+            updateTimer2();
         }, 1000);
     }
 
@@ -48,10 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
         gameOverElement.style.display = 'block';
     }
 
+    // Function to toggle letter color
+    function toggleLetterColor(button) {
+        if (button.style.backgroundColor === 'green') {
+            button.style.backgroundColor = 'red';
+        } else {
+            button.style.backgroundColor = 'green';
+        }
+    }
+
     // Event listener for letter buttons
     document.querySelectorAll('.letter-button').forEach(button => {
+        button.style.backgroundColor = 'green';
         button.addEventListener('click', () => {
             if (gameInProgress) {
+                toggleLetterColor(button);
                 if (activeTimer === 1) {
                     startTimer1();
                     activeTimer = 2;
@@ -62,4 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Start initial timer
+    startTimer1(); // Start with Timer 1
 });
