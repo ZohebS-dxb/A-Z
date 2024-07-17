@@ -52,7 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
         gameInProgress = false;
         gameOverElement.style.display = 'block';
         gameOverElement.textContent = gameOverMessage;
-        gameOverSound.play();
+        //gameOverSound.play();
+         gameOverSound.play().catch(error => {
+            console.log('Failed to play the sound:', error);
+        });
 
     }
 
