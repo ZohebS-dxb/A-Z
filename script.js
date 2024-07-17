@@ -12,43 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeTimer = 1; // 1 for Timer 1, 2 for Timer 2
     let gameInProgress = true;
 
-    // Function to update Timer 1
-    function updateTimer1() {
-        timer1CountdownElement.textContent = timer1;
-        if (timer1 === 0) {
-            clearInterval(timer1Interval);
-            displayGameOver();
-        }
-    }
-
-    // Function to update Timer 2
-    function updateTimer2() {
-        timer2CountdownElement.textContent = timer2;
-        if (timer2 === 0) {
-            clearInterval(timer2Interval);
-            displayGameOver();
-        }
-    }
-
     // Function to start Timer 1
     function startTimer1() {
         clearInterval(timer2Interval); // Pause Timer 2
-        timer1Element.style.display = 'block'; // Show Timer 1
         timer2Element.style.display = 'none'; // Hide Timer 2
+        timer1Element.style.display = 'block'; // Show Timer 1
+        timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
             timer1--;
-            updateTimer1();
+            timer1CountdownElement.textContent = timer1;
+            if (timer1 === 0) {
+                clearInterval(timer1Interval);
+                displayGameOver();
+            }
         }, 1000);
     }
 
     // Function to start Timer 2
     function startTimer2() {
         clearInterval(timer1Interval); // Pause Timer 1
-        timer2Element.style.display = 'block'; // Show Timer 2
         timer1Element.style.display = 'none'; // Hide Timer 1
+        timer2Element.style.display = 'block'; // Show Timer 2
+        timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
             timer2--;
-            updateTimer2();
+            timer2CountdownElement.textContent = timer2;
+            if (timer2 === 0) {
+                clearInterval(timer2Interval);
+                displayGameOver();
+            }
         }, 1000);
     }
 
@@ -74,10 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameInProgress) {
                 toggleLetterColor(button);
                 if (activeTimer === 1) {
-                    startTimer1();
+                    clearInterval(timer1Interval);
+                    startTimer2();
                     activeTimer = 2;
                 } else if (activeTimer === 2) {
-                    startTimer2();
+                    clearInterval(timer2Interval);
+                    startTimer1();
                     activeTimer = 1;
                 }
             }
