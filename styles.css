@@ -1,44 +1,55 @@
 body {
-    font-family: 'Verdana', sans-serif;
-    background-image: url('background.jpg');
-    background-size: cover;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    color: red; /* Default text color is red */
+    font-family: Verdana, sans-serif;
+    background-image: url('background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
 }
 
-#timer1, #timer2 {
-    font-size: 8vw; /* Adjust the size based on viewport width */
-    font-weight: bold;
-    margin: 5vh 0; /* Vertical margin based on viewport height */
-    color: yellow; /* Bright yellow color for timers */
+.container {
+    width: 100%;
+    padding: 10px;
+    text-align: center; /* Center align content within container */
 }
 
-#game-over {
-    display: none;
-    font-size: 8vw; /* Adjust the size based on viewport width */
-    font-weight: bold;
-    color: red;
-    text-align: center;
+.timer {
+    font-size: 7rem; /* Larger font size for timer */
+    font-weight: bold; /* Bold text */
+    color: yellow; /* Yellow color */
+    margin-bottom: 20px; /* Space below timer */
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
 }
 
 .letter-button {
-    font-size: 6vw; /* Adjust the size based on viewport width */
+    font-size: 2rem;
     font-weight: bold;
-    margin: 1vw; /* Margin based on viewport width */
-    padding: 2vh; /* Padding based on viewport height */
+    padding: 20px;
     background-color: green;
     color: white;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
-    display: inline-block;
     text-align: center;
 }
 
-.letter-button:hover {
-    opacity: 0.8;
+.letter-button.red {
+    background-color: red !important; /* Ensure red color is applied */
+    color: black !important; /* Change text color for visibility */
+}
+
+.message {
+    font-size: 3rem; /* Larger font size for message */
+    font-weight: bold; /* Bold text */
+    color: green; /* Green color */
+    margin-top: 20px; /* Space above message */
+    display: none; /* Initially hidden */
 }
