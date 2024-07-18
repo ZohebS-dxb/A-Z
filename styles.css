@@ -53,3 +53,8 @@ body {
     margin-top: 20px; /* Space above message */
     display: none; /* Initially hidden */
 }
+
+.nonplayer
+{
+    color : #eeeeee;
+}
