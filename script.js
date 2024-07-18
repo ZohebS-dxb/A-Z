@@ -19,8 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTimer1() {
         clearInterval(timer2Interval); // Pause Timer 2
         //timer2Element.style.visibility = 'hidden'; // Hide Timer 2
-        timer1Element.style.visibility = 'visible'; // Show Timer 1
+        //timer1Element.style.visibility = 'visible'; // Show Timer 1
         timer2Element.classList.add("nonplayer");
+        timer2Element.classList.remove("player");
+      
+        timer1Element.classList.remove("nonplayer");
+        timer1Element.classList.add("player");
+        
+      
         timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
             timer1--;
@@ -36,9 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to start Timer 2
     function startTimer2() {
         clearInterval(timer1Interval); // Pause Timer 1
-        timer1Element.style.visibility = 'hidden'; // Hide Timer 1
-        timer2Element.style.visibility = 'visible'; // Show Timer 2
+        //timer1Element.style.visibility = 'hidden'; // Hide Timer 1
+        //timer2Element.style.visibility = 'visible'; // Show Timer 2
         timer1Element.classList.add("nonplayer");
+        timer1Element.classList.remove("player");
+      
+        timer2Element.classList.add("player");
+        timer2Element.classList.remove("nonplayer");
+      
         timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
             timer2--;
@@ -50,23 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 1000);
     }
-
-    // Function to display "Game Over" message
-   /* function displayGameOver() {
-        gameInProgress = false;
-        gameOverElement.style.display = 'block';
-        gameOverElement.textContent = gameOverMessage;
-        //gameOverSound.play();
-       // gameOverSound.play().catch(error => {
-//console.log('Failed to play the sound:', error);
-         console.log('Game over:', gameOverMessage); // Debugging message
-        gameOverSound.play().then(() => {
-            console.log('Sound played successfully'); // Debugging message
-        }).catch(error => {
-            console.log('Failed to play the sound:', error);
-        });
-        });
-        }*/
 
      function displayGameOver() {
         gameInProgress = false;
