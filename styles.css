@@ -10,6 +10,7 @@ body {
     background-position: center;
 }
 
+
 .container {
     width: 100%;
     padding: 10px;
@@ -42,8 +43,8 @@ body {
 }
 
 .letter-button.red {
-    background-color: red !important; /* Ensure red color is applied */
-    color: black !important; /* Change text color for visibility */
+    background-color: #eee !important; /* Ensure red color is applied */
+    color: #ffbcbc !important; /* Change text color for visibility */
 }
 
 .message {
@@ -54,7 +55,13 @@ body {
     display: none; /* Initially hidden */
 }
 
+.player
+{
+    color : yellow;
+}
+
 .nonplayer
 {
-    color : #eeeeee;
+    color : #595555;
+  
 }
