@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to start Timer 1
     function startTimer1() {
         clearInterval(timer2Interval); // Pause Timer 2
-        //timer2Element.style.visibility = 'hidden'; // Hide Timer 2
-        //timer1Element.style.visibility = 'visible'; // Show Timer 1
         timer2Element.classList.add("nonplayer");
         timer2Element.classList.remove("player");
       
@@ -42,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to start Timer 2
     function startTimer2() {
         clearInterval(timer1Interval); // Pause Timer 1
-        //timer1Element.style.visibility = 'hidden'; // Hide Timer 1
-        //timer2Element.style.visibility = 'visible'; // Show Timer 2
+
         timer1Element.classList.add("nonplayer");
         timer1Element.classList.remove("player");
       
