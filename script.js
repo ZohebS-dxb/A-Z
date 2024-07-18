@@ -59,23 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // Function to display "Game Over" message
-   /* function displayGameOver() {
-        gameInProgress = false;
-        gameOverElement.style.display = 'block';
-        gameOverElement.textContent = gameOverMessage;
-        //gameOverSound.play();
-       // gameOverSound.play().catch(error => {
-//console.log('Failed to play the sound:', error);
-         console.log('Game over:', gameOverMessage); // Debugging message
-        gameOverSound.play().then(() => {
-            console.log('Sound played successfully'); // Debugging message
-        }).catch(error => {
-            console.log('Failed to play the sound:', error);
-        });
-        });
-        }*/
-
      function displayGameOver() {
         gameInProgress = false;
         gameOverElement.style.display = 'block';
