@@ -53,7 +53,7 @@ body {
 
 .letter-button.red {
     background-color: red !important; /* Ensure red color is applied */
-    color: #fecfcf !important; /* Change text color for visibility */
+    color: white !important; /* Change text color for visibility */
 }
 
 .player
