@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timer1CountdownElement.textContent = timer1;
             if (timer1 === 0) {
                 clearInterval(timer1Interval);
-                gameOverMessage = 'Player 2 wins';
+                gameOverMessage = 'Player B wins';
                 displayGameOver();
             }
         }, 1000);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             timer2CountdownElement.textContent = timer2;
             if (timer2 === 0) {
                 clearInterval(timer2Interval);
-                gameOverMessage = 'Player 1 wins';
+                gameOverMessage = 'Player A wins';
                 displayGameOver();
             }
         }, 1000);
