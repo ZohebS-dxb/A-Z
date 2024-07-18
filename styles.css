@@ -5,11 +5,10 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Verdana, sans-serif;
-    background-image: url('background.jpg'); /* Replace with your image path */
+    background-color: #000; /* Replace with your image path */
     background-size: cover;
     background-position: center;
 }
-
 
 .container {
     width: 100%;
@@ -42,10 +41,7 @@ body {
     text-align: center;
 }
 
-.letter-button.red {
-    background-color: #eee !important; /* Ensure red color is applied */
-    color: #ffbcbc !important; /* Change text color for visibility */
-}
+
 
 .message {
     font-size: 3rem; /* Larger font size for message */
@@ -55,9 +51,14 @@ body {
     display: none; /* Initially hidden */
 }
 
+.letter-button.red {
+    background-color: #fecfcf !important; /* Ensure red color is applied */
+    color: #ffbcbc !important; /* Change text color for visibility */
+}
+
 .player
 {
-    color : #e2fe0c;
+    color : yellow;
 }
 
 .nonplayer
