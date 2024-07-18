@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Verdana, sans-serif;
-    background-color: #000; /* Replace with your image path */
+    background-image: url('background.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
 }
