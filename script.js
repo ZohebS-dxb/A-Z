@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleLetterColor(button) {
         if (button.style.backgroundColor === 'green') {
             button.style.backgroundColor = 'red';
-            button.addClass('.letter-buutton.red');
+            button.addClass('.letter-button.red');
         } else {
             button.style.backgroundColor = 'green';
         }
