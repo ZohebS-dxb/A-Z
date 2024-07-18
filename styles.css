@@ -52,8 +52,8 @@ body {
 }
 
 .letter-button.red {
-    background-color: #fecfcf !important; /* Ensure red color is applied */
-    color: #ffbcbc !important; /* Change text color for visibility */
+    background-color: red !important; /* Ensure red color is applied */
+    color: #fecfcf !important; /* Change text color for visibility */
 }
 
 .player
