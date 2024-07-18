@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to start Timer 1
     function startTimer1() {
         clearInterval(timer2Interval); // Pause Timer 2
-        timer2Element.style.display = 'none'; // Hide Timer 2
+        timer2Element.style.display = 'hidden'; // Hide Timer 2
         timer1Element.style.display = 'block'; // Show Timer 1
         timer1CountdownElement.textContent = timer1;
         timer1Interval = setInterval(() => {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to start Timer 2
     function startTimer2() {
         clearInterval(timer1Interval); // Pause Timer 1
-        timer1Element.style.display = 'none'; // Hide Timer 1
+        timer1Element.style.display = 'hidden'; // Hide Timer 1
         timer2Element.style.display = 'block'; // Show Timer 2
         timer2CountdownElement.textContent = timer2;
         timer2Interval = setInterval(() => {
